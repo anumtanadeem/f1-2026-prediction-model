@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from visualize import plot_results
 from sklearn.ensemble import GradientBoostingRegressor, RandomForestRegressor
 from sklearn.model_selection import cross_val_score
 from sklearn.pipeline import Pipeline
@@ -137,12 +138,14 @@ if __name__ == "__main__":
 
     # ── Print results ──────────────────────────────────────────────────────
     print("\n" + "═"*45)
-    print("  🏁 2026 CANADIAN GP — PREDICTED STANDINGS")
+    print("  *** 2026 CANADIAN GP — PREDICTED STANDINGS ***")
     print("═"*45)
-    medals = {0: "🥇", 1: "🥈", 2: "🥉"}
+    medals = {0: "P1", 1: "P2", 2: "P3"}
     for i, row in results.iterrows():
         medal = medals.get(i, f"P{i+1}")
         gap = "" if i == 0 else f"+{row['AdjustedTime_s'] - results['AdjustedTime_s'].iloc[0]:.3f}s"
         print(f"  {medal}  {row['Driver']:<4}  {row['AdjustedTime_s']:.3f}s  {gap}")
     print("═"*45)
     print(f"\n  Model MAE: ~{(gbr_mae + rf_mae) / 2:.3f}s per lap")
+    # ── Generate chart ─────────────────────────────────────────────────────
+    plot_results(results, gbr, FEATURE_COLS, "Canadian GP")
