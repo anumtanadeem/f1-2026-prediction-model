@@ -104,3 +104,47 @@ WET_FACTORS = {
     "OCO": 0.982,
     "LIN": 0.990,
 }
+
+# ── Energy management score per team ──────────────────────────────────────
+ENERGY_MANAGEMENT = {
+    "Mercedes":      0.92,
+    "McLaren":       0.85,
+    "Ferrari":       0.80,
+    "Williams":      0.75,
+    "Alpine":        0.74,
+    "Red Bull":      0.62,
+    "Racing Bulls":  0.65,
+    "Haas":          0.72,
+    "Cadillac":      0.60,
+    "Aston Martin":  0.58,
+    "Audi":          0.50,
+}
+
+# ── Overtake mode effectiveness per driver ─────────────────────────────────
+# Average positions gained per race using overtake mode (2026 season so far)
+# Positive = gains positions, negative = loses positions
+# Based on qualifying position vs finishing position across 4 races
+OVERTAKE_EFFECTIVENESS = {
+    "ANT":  1.5,   # Antonelli very aggressive, gained positions in multiple races
+    "RUS":  0.8,   # Consistent gainer
+    "NOR":  0.5,   # Usually starts near front, less room to gain
+    "PIA":  0.3,
+    "LEC": -0.5,   # Ferrari strategy has cost him positions
+    "HAM":  0.8,   # Hamilton still adapting but strong overtaker
+    "VER":  0.2,   # Pace there but reliability limiting
+    "HAD": -0.3,   # Rookie, still learning overtake mode
+    "ALO": -0.8,   # Honda PU struggles with deployment timing
+    "STR": -0.2,
+    "GAS":  0.6,
+    "COL":  0.4,
+    "ALB":  0.7,
+    "SAI":  0.5,
+    "LAW":  0.3,
+    "BEA":  0.2,
+    "HUL":  0.1,
+    "BOR": -0.1,
+    "PER": -0.5,   # Cadillac still learning the mode
+    "BOT": -0.3,
+    "OCO":  0.4,
+    "LIN":  0.1,
+}
